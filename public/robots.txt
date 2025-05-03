@@ -1,0 +1,30 @@
+# https://www.gokkerz.nl robots.txt
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+
+# Important Pages
+Allow: /casinos
+Allow: /bonussen
+Allow: /blog
+Allow: /verantwoord-gokken
+Allow: /over-ons
+Allow: /contact
+
+# Legal Pages
+Allow: /privacybeleid
+Allow: /cookiebeleid
+Allow: /algemenevoorwaarden
+
+# Prevent duplicate content
+Disallow: /casinos?*
+Disallow: /bonussen?*
+Disallow: /blog?*
+
+# Prevent crawling of non-production environments
+Disallow: /staging/
+Disallow: /test/
+Disallow: /dev/
+
+# Sitemap location
+Sitemap: https://www.gokkerz.nl/sitemap.xml

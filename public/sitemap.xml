@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.gokkerz.nl/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.gokkerz.nl/assets/Gokkerz.nl.svg</image:loc>
+      <image:title>Gokkerz.nl Logo</image:title>
+      <image:caption>Dé online casino gids van Nederland</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/casinos</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.gokkerz.nl/casinologos/casilogos/toto.svg</image:loc>
+      <image:title>TOTO Casino logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.gokkerz.nl/casinologos/casilogos/holland casino.svg</image:loc>
+      <image:title>Holland Casino logo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/bonussen</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/verantwoord-gokken</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/over-ons</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Casino Review Pages -->
+  <url>
+    <loc>https://www.gokkerz.nl/casinos/toto-casino</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.gokkerz.nl/casinologos/casilogos/toto.svg</image:loc>
+      <image:title>TOTO Casino Review</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/casinos/holland-casino</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.gokkerz.nl/casinologos/casilogos/holland casino.svg</image:loc>
+      <image:title>Holland Casino Review</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/casinos/betcity</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.gokkerz.nl/casinologos/casilogos/betcity.svg</image:loc>
+      <image:title>BetCity Casino Review</image:title>
+    </image:image>
+  </url>
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://www.gokkerz.nl/privacybeleid</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/cookiebeleid</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.gokkerz.nl/algemenevoorwaarden</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
