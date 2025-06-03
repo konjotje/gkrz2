@@ -42,6 +42,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import HeroHeader from '@/components/HeroHeader';
+import { Analytics } from '@vercel/analytics/react';
 
 const Bonussen = () => {
   // Bonus offers data with all casinos
@@ -1065,6 +1066,9 @@ const Bonussen = () => {
           </div>
         </div>
       </div>
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

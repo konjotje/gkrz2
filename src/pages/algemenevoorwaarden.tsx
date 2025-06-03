@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import { Helmet } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 
 const AlgemeneVoorwaarden = () => {
   return (
@@ -69,6 +70,8 @@ const AlgemeneVoorwaarden = () => {
           <p>Laatst bijgewerkt: 30 april 2025</p>
         </div>
       </div>
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

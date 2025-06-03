@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/card';
 import useMediaQuery from '@/hooks/use-mobile';
 import HeroHeader from '@/components/HeroHeader';
+import { Analytics } from '@vercel/analytics/react';
 
 export const casinos = [
   {
@@ -771,6 +772,8 @@ const Casinos = () => {
           </div>
         </div>
       </div>
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

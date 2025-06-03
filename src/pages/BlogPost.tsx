@@ -7,6 +7,7 @@ import { BonusCard } from '@/components/BonusCard';
 import { Clock, User, Calendar, ArrowLeft, Share2 } from 'lucide-react';
 import { blogPosts } from '../lib/blogPosts';
 import { Helmet } from 'react-helmet';
+import { Analytics } from '@vercel/analytics/react';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -307,6 +308,9 @@ const BlogPost = () => {
           }),
         }}
       />
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

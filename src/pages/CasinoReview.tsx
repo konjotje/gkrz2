@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Star, Shield, Gift, Check, Clock, ThumbsUp, Info, Users, Gamepad2, Wallet, Award, Calendar, Mail, Phone, Lock } from 'lucide-react';
 import { casinoBrandColors } from '@/lib/casino-colors';
 import { casinos } from './Casinos';
+import { Analytics } from '@vercel/analytics/react';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -749,6 +750,9 @@ const CasinoReview = () => {
           </div>
         </div>
       </section>
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

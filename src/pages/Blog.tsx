@@ -26,6 +26,7 @@ import { Separator } from '@/components/ui/separator';
 import { blogPosts } from '../lib/blogPosts';
 import { BlogPostCard } from '@/components/BlogPostCard';
 import { Helmet } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = React.useState('alle');
@@ -260,6 +261,9 @@ const Blog = () => {
           </div>
         )}
       </div>
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

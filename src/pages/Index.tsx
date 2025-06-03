@@ -37,6 +37,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { casinoBrandColors } from '@/lib/casino-colors';
+import { Analytics } from '@vercel/analytics/react';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -1182,6 +1183,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

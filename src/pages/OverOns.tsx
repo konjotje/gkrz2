@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 
 const OverOns = () => {
   return (
@@ -325,6 +326,9 @@ const OverOns = () => {
           </div>
         </div>
       </div>
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

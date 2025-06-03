@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 
 const VerantwoordGokken = () => {
   const warningSignsList = [
@@ -260,6 +261,9 @@ const VerantwoordGokken = () => {
           </div>
         </div>
       </div>
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };

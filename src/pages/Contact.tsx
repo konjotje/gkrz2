@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, MessageSquare } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -179,6 +180,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Vercel Analytics */}
+      <Analytics />
     </Layout>
   );
 };
