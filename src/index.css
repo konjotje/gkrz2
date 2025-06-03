@@ -44,6 +44,8 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --emoji-font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Twemoji Mozilla', 'EmojiOne Color', 'Android Emoji', sans-serif;
   }
 
   .dark {
@@ -163,6 +165,21 @@
 
   .bg-green-gradient {
     @apply bg-gradient-to-r from-gokkerz-green to-green-500;
+  }
+
+  .emoji, [data-emoji] {
+    font-family: var(--emoji-font-family) !important;
+    font-size: 2.5rem;
+    line-height: 1;
+    vertical-align: middle;
+    font-variant-emoji: emoji;
+    font-feature-settings: "emoj";
+  }
+
+  @media (min-width: 640px) {
+    .emoji, [data-emoji] {
+      font-size: 3.5rem;
+    }
   }
 }
 

@@ -725,127 +725,103 @@ const Index = () => {
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               <div className="space-y-6">
-                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-2xl">
-                  <div className="flex flex-col items-center">
-                    <div className="mb-4 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent p-3">
-                      <Gift className="h-8 w-8 text-gokkerz-green" />
-                    </div>
-                    <div className="flex-1 text-center">
-                      <h4 className="mb-3 text-xl font-semibold">Welkomstbonus</h4>
-                      <p className="mb-3 text-gray-600">
-                        De populairste bonus voor nieuwe spelers. Casino's verdubbelen vaak je
-                        eerste storting tot wel €1000.
-                      </p>
-                      <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="font-medium text-gokkerz-green">Voorbeeld:</span>
-                          <span className="text-gray-600">100% tot €200 + 100 free spins</span>
-                        </div>
-                      </div>
+                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl flex flex-col items-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
+                    {/* 3D Emoji zonder frame */}
+                    🎁
+                  </div>
+                  <div className="flex-1 text-center">
+                    <h4 className="mb-3 text-xl font-semibold">Welkomstbonus</h4>
+                    <p className="mb-3 text-gray-600">
+                      Ontvang als nieuwe speler een verdubbeling van je eerste storting tot €250. Extra speelgeld en spins bij registratie.
+                    </p>
+                    <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
+                      <span className="font-medium text-gokkerz-green">Voorbeeld:</span>{' '}
+                      <span className="text-gray-600">100% tot €200 + 100 free spins</span>
                     </div>
                   </div>
                 </div>
-
-                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-2xl">
-                  <div className="flex flex-col items-center">
-                    <div className="mb-4 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent p-3">
-                      <Star className="h-8 w-8 text-gokkerz-green" />
-                    </div>
-                    <div className="flex-1 text-center">
-                      <h4 className="mb-3 text-xl font-semibold">No Deposit Bonus</h4>
-                      <p className="mb-3 text-gray-600">
-                        Begin met spelen zonder storting. Ontvang direct gratis speelgeld of free
-                        spins.
-                      </p>
-                      <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="font-medium text-gokkerz-green">Voorbeeld:</span>
-                          <span className="text-gray-600">€10 gratis speelgeld</span>
-                        </div>
-                      </div>
+                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl flex flex-col items-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
+                    {/* 3D Emoji zonder frame */}
+                    ⭐️
+                  </div>
+                  <div className="flex-1 text-center">
+                    <h4 className="mb-3 text-xl font-semibold">No Deposit Bonus</h4>
+                    <p className="mb-3 text-gray-600">
+                      Speel gratis zonder storting. Ontvang automatisch speelgeld of free spins
+                      zodra je een account aanmaakt bij het online casino.
+                    </p>
+                    <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
+                      <span className="font-medium text-gokkerz-green">Voorbeeld:</span>{' '}
+                      <span className="text-gray-600">€10 gratis speelgeld</span>
                     </div>
                   </div>
                 </div>
-
-                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-2xl">
-                  <div className="flex flex-col items-center">
-                    <div className="mb-4 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent p-3">
-                      <MessageCircle className="h-8 w-8 text-gokkerz-green" />
-                    </div>
-                    <div className="flex-1 text-center">
-                      <h4 className="mb-3 text-xl font-semibold">Reload Bonus</h4>
-                      <p className="mb-3 text-gray-600">
-                        Bonussen voor bestaande spelers bij nieuwe stortingen, vaak gekoppeld aan
-                        events.
-                      </p>
-                      <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="font-medium text-gokkerz-green">Voorbeeld:</span>
-                          <span className="text-gray-600">50% bonus tot €100</span>
-                        </div>
-                      </div>
+                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl flex flex-col items-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
+                    {/* 3D Emoji zonder frame */}
+                    🔃
+                  </div>
+                  <div className="flex-1 text-center">
+                    <h4 className="mb-3 text-xl font-semibold">Reload Bonus</h4>
+                    <p className="mb-3 text-gray-600">
+                      Extra bonus bij een nieuwe storting voor bestaande spelers. Vaak beschikbaar
+                      tijdens promoties, events of wekelijkse casinoacties.
+                    </p>
+                    <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
+                      <span className="font-medium text-gokkerz-green">Voorbeeld:</span>{' '}
+                      <span className="text-gray-600">50% bonus tot €100</span>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div className="space-y-6">
-                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-2xl">
-                  <div className="flex flex-col items-center">
-                    <div className="mb-4 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent p-3">
-                      <Award className="h-8 w-8 text-gokkerz-green" />
-                    </div>
-                    <div className="flex-1 text-center">
-                      <h4 className="mb-3 text-xl font-semibold">Cashback Bonus</h4>
-                      <p className="mb-3 text-gray-600">
-                        Krijg een percentage van je verliezen terug met vaak lagere inzetvereisten.
-                      </p>
-                      <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="font-medium text-gokkerz-green">Voorbeeld:</span>
-                          <span className="text-gray-600">10% cashback tot €100</span>
-                        </div>
-                      </div>
+                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl flex flex-col items-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
+                    {/* 3D Emoji zonder frame */}
+                    🏆
+                  </div>
+                  <div className="flex-1 text-center">
+                    <h4 className="mb-3 text-xl font-semibold">Cashback Bonus</h4>
+                    <p className="mb-3 text-gray-600">
+                      Krijg een percentage van je verliezen terug als cashback. Deze bonus heeft
+                      meestal lagere inzetvereisten dan andere promoties.
+                    </p>
+                    <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
+                      <span className="font-medium text-gokkerz-green">Voorbeeld:</span>{' '}
+                      <span className="text-gray-600">10% cashback tot €100</span>
                     </div>
                   </div>
                 </div>
-
-                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-2xl">
-                  <div className="flex flex-col items-center">
-                    <div className="mb-4 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent p-3">
-                      <Shield className="h-8 w-8 text-gokkerz-green" />
-                    </div>
-                    <div className="flex-1 text-center">
-                      <h4 className="mb-3 text-xl font-semibold">Loyaliteitsprogramma</h4>
-                      <p className="mb-3 text-gray-600">
-                        Verdien punten bij elk spel voor bonussen en andere beloningen.
-                      </p>
-                      <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="font-medium text-gokkerz-green">Voorbeeld:</span>
-                          <span className="text-gray-600">1 punt per €10 inzet</span>
-                        </div>
-                      </div>
+                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl flex flex-col items-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
+                    {/* 3D Emoji zonder frame */}
+                    🫶
+                  </div>
+                  <div className="flex-1 text-center">
+                    <h4 className="mb-3 text-xl font-semibold">Loyaliteitspunten</h4>
+                    <p className="mb-3 text-gray-600">Verdien punten bij elke inzet verdien geld terug. Loyaliteitsprogramma’s bieden vaak extra bonussen.</p>
+                    <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
+                      <span className="font-medium text-gokkerz-green">Voorbeeld:</span>{' '}
+                      <span className="text-gray-600">1 punt per €10 inzet</span>
                     </div>
                   </div>
                 </div>
-
-                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-2xl">
-                  <div className="flex flex-col items-center">
-                    <div className="mb-4 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent p-3">
-                      <User className="h-8 w-8 text-gokkerz-green" />
-                    </div>
-                    <div className="flex-1 text-center">
-                      <h4 className="mb-3 text-xl font-semibold">High Roller Bonus</h4>
-                      <p className="mb-3 text-gray-600">
-                        Speciale bonussen voor spelers met hogere inzetten.
-                      </p>
-                      <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="font-medium text-gokkerz-green">Voorbeeld:</span>
-                          <span className="text-gray-600">50% tot €2000 (min. €1000)</span>
-                        </div>
-                      </div>
+                <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl flex flex-col items-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
+                    {/* 3D Emoji zonder frame */}
+                    👑
+                  </div>
+                  <div className="flex-1 text-center">
+                    <h4 className="mb-3 text-xl font-semibold">High Roller Bonus</h4>
+                    <p className="mb-3 text-gray-600">
+                      Speciaal voor spelers die groots storten. Ontvang hogere bonussen bij grote
+                      bedragen en profiteer van exclusieve extra’s.
+                    </p>
+                    <div className="rounded-lg bg-gradient-to-r from-gray-50 to-white p-4 shadow-sm ring-1 ring-gray-900/10">
+                      <span className="font-medium text-gokkerz-green">Voorbeeld:</span>{' '}
+                      <span className="text-gray-600">50% tot €2000 (min. €1000)</span>
                     </div>
                   </div>
                 </div>
@@ -920,7 +896,7 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
               <div className="flex flex-col items-center">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
-                  <span className="text-3xl">🎰</span>
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎰</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Online Slots</h3>
                 <ul className="w-full space-y-2 text-center sm:text-left">
@@ -944,7 +920,7 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
               <div className="flex flex-col items-center">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
-                  <span className="text-3xl">🎲</span>
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎲</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Roulette</h3>
                 <ul className="w-full space-y-2 text-center sm:text-left">
@@ -968,7 +944,7 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
               <div className="flex flex-col items-center">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
-                  <span className="text-3xl">♠️</span>
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">♠️</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Blackjack</h3>
                 <ul className="w-full space-y-2 text-center sm:text-left">
@@ -992,7 +968,7 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
               <div className="flex flex-col items-center">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
-                  <span className="text-3xl">🎥</span>
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎥</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Live Casino</h3>
                 <ul className="w-full space-y-2 text-center sm:text-left">

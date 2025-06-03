@@ -12,6 +12,7 @@ const Header = () => {
     { name: "Casino's", path: '/casinos' },
     { name: 'Bonussen', path: '/bonussen' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Games', path: '/games' }, // <-- Toegevoegd
     { name: 'Verantwoord Spelen', path: '/verantwoord-gokken' },
     { name: 'Over Ons', path: '/over-ons' },
     { name: 'Contact', path: '/contact' },

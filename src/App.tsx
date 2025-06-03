@@ -14,6 +14,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Privacybeleid from './pages/privacybeleid';
 import Cookiebeleid from './pages/cookiebeleid';
 import AlgemeneVoorwaarden from './pages/algemenevoorwaarden';
+import Games from './pages/Games';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/privacybeleid" element={<Privacybeleid />} />
           <Route path="/cookiebeleid" element={<Cookiebeleid />} />
           <Route path="/algemenevoorwaarden" element={<AlgemeneVoorwaarden />} />
+          <Route path="/games" element={<Games />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
