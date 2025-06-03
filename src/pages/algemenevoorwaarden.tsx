@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@/components/layout/Layout';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const AlgemeneVoorwaarden = () => {
   return (
@@ -72,6 +73,8 @@ const AlgemeneVoorwaarden = () => {
       </div>
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

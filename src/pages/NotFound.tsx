@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const NotFound = () => {
   const location = useLocation();
@@ -23,6 +24,8 @@ const NotFound = () => {
       </div>
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </div>
   );
 };

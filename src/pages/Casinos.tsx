@@ -23,6 +23,7 @@ import {
 import useMediaQuery from '@/hooks/use-mobile';
 import HeroHeader from '@/components/HeroHeader';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export const casinos = [
   {
@@ -774,6 +775,8 @@ const Casinos = () => {
       </div>
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

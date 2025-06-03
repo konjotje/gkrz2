@@ -27,6 +27,7 @@ import { blogPosts } from '../lib/blogPosts';
 import { BlogPostCard } from '@/components/BlogPostCard';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = React.useState('alle');
@@ -264,6 +265,8 @@ const Blog = () => {
 
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const VerantwoordGokken = () => {
   const warningSignsList = [
@@ -264,6 +265,8 @@ const VerantwoordGokken = () => {
 
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

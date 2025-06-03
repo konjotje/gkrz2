@@ -38,6 +38,7 @@ import {
 } from '@/components/ui/table';
 import { casinoBrandColors } from '@/lib/casino-colors';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -1186,6 +1187,8 @@ const Index = () => {
 
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

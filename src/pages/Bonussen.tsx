@@ -43,6 +43,7 @@ import {
 } from '@/components/ui/accordion';
 import HeroHeader from '@/components/HeroHeader';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Bonussen = () => {
   // Bonus offers data with all casinos
@@ -1069,6 +1070,8 @@ const Bonussen = () => {
 
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

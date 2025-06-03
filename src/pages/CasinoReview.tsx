@@ -8,6 +8,7 @@ import { Star, Shield, Gift, Check, Clock, ThumbsUp, Info, Users, Gamepad2, Wall
 import { casinoBrandColors } from '@/lib/casino-colors';
 import { casinos } from './Casinos';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -753,6 +754,8 @@ const CasinoReview = () => {
 
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

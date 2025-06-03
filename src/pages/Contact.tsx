@@ -9,6 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Mail, MessageSquare } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -183,6 +184,8 @@ const Contact = () => {
 
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };

@@ -8,6 +8,7 @@ import { Clock, User, Calendar, ArrowLeft, Share2 } from 'lucide-react';
 import { blogPosts } from '../lib/blogPosts';
 import { Helmet } from 'react-helmet';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -311,6 +312,8 @@ const BlogPost = () => {
 
       {/* Vercel Analytics */}
       <Analytics />
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </Layout>
   );
 };
