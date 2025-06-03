@@ -134,10 +134,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
   
-  .casino-card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -10px var(--brand-shadow-color, rgba(0, 204, 102, 0.2));
-  }
+  
 
   /* Improved text alignment classes */
   .text-center-important {
