@@ -402,7 +402,6 @@ const Index = () => {
                       >
                         <span className="flex items-center justify-center gap-2">
                           Claim €25 Bonus
-                          <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </span>
                       </a>
                     </Button>
@@ -674,19 +673,15 @@ const Index = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <span className="flex items-center justify-center gap-2">
-                          Claim Bonus
-                          <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                        </span>
+                        Claim Bonus
                       </a>
                     </Button>
                     <Button variant="outline" className="w-full" asChild>
                       <Link
                         to={`/casino/${bonus.casino.toLowerCase()}`}
-                        className="flex items-center justify-center gap-2 text-sm"
+                        className="flex items-center justify-center text-sm"
                       >
                         Lees Review
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Link>
                     </Button>
                   </div>
