@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Index from './pages/Index';
@@ -15,6 +16,7 @@ import Privacybeleid from './pages/privacybeleid';
 import Cookiebeleid from './pages/cookiebeleid';
 import AlgemeneVoorwaarden from './pages/algemenevoorwaarden';
 import Games from './pages/Games';
+import GokGptPage from './pages/gokgpt';
 import './App.css';
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
           <Route path="/cookiebeleid" element={<Cookiebeleid />} />
           <Route path="/algemenevoorwaarden" element={<AlgemeneVoorwaarden />} />
           <Route path="/games" element={<Games />} />
+          <Route path="/gokgpt" element={<GokGptPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
