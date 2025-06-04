@@ -176,6 +176,15 @@ const Index = () => {
       date: '1 week geleden',
       author: 'Game Expert',
     },
+    {
+      id: 4,
+      title: 'Live Casino Tips & Tricks',
+      excerpt:
+        'Expert tips om je live casino ervaring te verbeteren en je winkansen te verhogen bij live dealer games.',
+      image: 'https://placehold.co/600x400/00CC66/FFFFFF/png?text=Live+Casino',
+      date: '1 week geleden',
+      author: 'Live Casino Expert',
+    },
   ];
 
   const isMobile = useIsMobile('(max-width: 1023px)');
@@ -183,7 +192,7 @@ const Index = () => {
   const renderCasinoCard = (casino: (typeof featuredCasinos)[0]) => (
     <Card
       key={casino.id}
-      className="casino-card-hover flex flex-col"
+      className="casino-card-hover flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
       style={{
         ['--brand-shadow-color' as any]: `${casinoBrandColors[casino.name] || '#00CC66'}40`,
       }}
@@ -359,7 +368,7 @@ const Index = () => {
             {/* Right: Featured Bonus Card */}
             <div className="relative">
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white/50"></div>
-              <div className="glassmorphism relative p-8">
+              <div className="glassmorphism relative p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="absolute -right-4 -top-4 z-20">
                   <div className="animate-bounce rounded-full bg-gokkerz-green px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg">
                     Beste Bonus 2025
@@ -720,7 +729,7 @@ const Index = () => {
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               <div className="space-y-6">
-                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-gokkerz-green/5 flex flex-col items-center">
+                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col items-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
                     {/* 3D Emoji zonder frame */}
                     🎁
@@ -736,7 +745,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-gokkerz-green/5 flex flex-col items-center">
+                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col items-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
                     {/* 3D Emoji zonder frame */}
                     ⭐️
@@ -753,7 +762,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-gokkerz-green/5 flex flex-col items-center">
+                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col items-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
                     {/* 3D Emoji zonder frame */}
                     🔃
@@ -772,7 +781,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="space-y-6">
-                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-gokkerz-green/5 flex flex-col items-center">
+                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col items-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
                     {/* 3D Emoji zonder frame */}
                     🏆
@@ -789,7 +798,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-gokkerz-green/5 flex flex-col items-center">
+                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col items-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
                     {/* 3D Emoji zonder frame */}
                     🫶
@@ -803,7 +812,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-gokkerz-green/5 flex flex-col items-center">
+                <div className="bonus-type-card relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col items-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">
                     {/* 3D Emoji zonder frame */}
                     👑
@@ -828,7 +837,7 @@ const Index = () => {
                 Tips voor Casino Bonussen
               </h3>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div className="flex flex-col items-center gap-4 text-center">
+                <div className="flex flex-col items-center gap-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-xl p-6">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent">
                     <Check className="h-5 w-5 text-gokkerz-green" />
                   </div>
@@ -841,7 +850,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center gap-4 text-center">
+                <div className="flex flex-col items-center gap-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-xl p-6">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent">
                     <Check className="h-5 w-5 text-gokkerz-green" />
                   </div>
@@ -853,7 +862,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center gap-4 text-center">
+                <div className="flex flex-col items-center gap-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-xl p-6">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent">
                     <Check className="h-5 w-5 text-gokkerz-green" />
                   </div>
@@ -888,9 +897,9 @@ const Index = () => {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Online Slots */}
-            <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎰</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Online Slots</h3>
@@ -912,9 +921,9 @@ const Index = () => {
             </div>
 
             {/* Roulette */}
-            <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎲</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Roulette</h3>
@@ -936,9 +945,9 @@ const Index = () => {
             </div>
 
             {/* Blackjack */}
-            <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">♠️</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Blackjack</h3>
@@ -960,9 +969,9 @@ const Index = () => {
             </div>
 
             {/* Live Casino */}
-            <div className="relative overflow-hidden rounded-xl bg-white/95 p-6 shadow-lg backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,204,102,0.05),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(0,204,102,0.05),transparent_50%)] hover:shadow-xl">
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/5">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
                   <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎥</div>
                 </div>
                 <h3 className="mb-4 text-xl font-semibold">Live Casino</h3>
@@ -1011,7 +1020,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="glassmorphism p-6 text-center">
+            <div className="glassmorphism p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/10">
                 <Shield className="h-8 w-8 text-gokkerz-green" />
               </div>
@@ -1022,7 +1031,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="glassmorphism p-6 text-center">
+            <div className="glassmorphism p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/10">
                 <Users className="h-8 w-8 text-gokkerz-green" />
               </div>
@@ -1033,7 +1042,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="glassmorphism p-6 text-center">
+            <div className="glassmorphism p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/10">
                 <Calendar className="h-8 w-8 text-gokkerz-green" />
               </div>
@@ -1061,83 +1070,48 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="md:col-span-2">
-              <Card className="group overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <div className="relative h-[400px] overflow-hidden">
-                  <img
-                    src={latestPosts[0].image}
-                    alt={latestPosts[0].title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="mb-4 flex items-center gap-4 text-sm text-white/80">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {latestPosts.map((post) => (
+              <Card
+                key={post.id}
+                className="group overflow-hidden transition-all duration-300 hover:shadow-xl"
+              >
+                <div className="flex h-full flex-col">
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                  <CardContent className="flex-grow p-6">
+                    <div className="mb-3 flex items-center justify-center gap-4 text-sm text-gray-500">
                       <div className="flex items-center">
-                        <Calendar className="mr-2 h-4 w-4" />
-                        {latestPosts[0].date}
+                        <Calendar className="mr-1 h-4 w-4" />
+                        {post.date}
                       </div>
                       <div className="flex items-center">
-                        <User className="mr-2 h-4 w-4" />
-                        {latestPosts[0].author}
+                        <User className="mr-1 h-4 w-4" />
+                        {post.author}
                       </div>
                     </div>
-                    <h3 className="mb-3 text-2xl font-bold text-white">{latestPosts[0].title}</h3>
-                    <p className="mb-4 line-clamp-2 text-white/90">{latestPosts[0].excerpt}</p>
-                    <Button asChild className="bg-white text-gray-900 hover:bg-white/90">
-                      <Link to={`/blog/${latestPosts[0].id}`} className="inline-flex items-center">
-                        Lees artikel
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-gokkerz-green">
+                      <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                    </h3>
+                    <p className="line-clamp-2 text-gray-600">{post.excerpt}</p>
+                  </CardContent>
+                  <CardFooter className="px-6 pb-6 pt-0">
+                    <Button asChild variant="outline" className="group/btn w-full">
+                      <Link to={`/blog/${post.id}`} className="flex items-center justify-center">
+                        Lees meer
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                       </Link>
                     </Button>
-                  </div>
+                  </CardFooter>
                 </div>
               </Card>
-            </div>
-
-            <div className="space-y-8">
-              {latestPosts.slice(1).map((post) => (
-                <Card
-                  key={post.id}
-                  className="group overflow-hidden transition-all duration-300 hover:shadow-lg"
-                >
-                  <div className="flex h-full flex-col">
-                    <div className="relative h-40 overflow-hidden">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    </div>
-                    <CardContent className="flex-grow p-6">
-                      <div className="mb-3 flex items-center gap-4 text-sm text-gray-500">
-                        <div className="flex items-center">
-                          <Calendar className="mr-1 h-4 w-4" />
-                          {post.date}
-                        </div>
-                        <div className="flex items-center">
-                          <User className="mr-1 h-4 w-4" />
-                          {post.author}
-                        </div>
-                      </div>
-                      <h3 className="mb-2 text-lg font-semibold transition-colors group-hover:text-gokkerz-green">
-                        <Link to={`/blog/${post.id}`}>{post.title}</Link>
-                      </h3>
-                      <p className="line-clamp-2 text-sm text-gray-600">{post.excerpt}</p>
-                    </CardContent>
-                    <CardFooter className="px-6 pb-6 pt-0">
-                      <Button asChild variant="outline" className="group/btn w-full">
-                        <Link to={`/blog/${post.id}`} className="flex items-center justify-center">
-                          Lees meer
-                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </CardFooter>
-                  </div>
-                </Card>
-              ))}
-            </div>
+            ))}
           </div>
 
           <div className="mt-12 text-center">
