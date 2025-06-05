@@ -12,11 +12,10 @@ const Header = () => {
     { name: "Casino's", path: '/casinos' },
     { name: 'Bonussen', path: '/bonussen' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Games', path: '/games' },
-    { name: 'Verantwoord Gokken', path: '/verantwoord-gokken' },
-    { name: 'GokGPT', path: '/gokgpt' },
-    // { name: 'Over Ons', path: '/over-ons' }, // nu alleen in footer
-    // { name: 'Contact', path: '/contact' }, // nu alleen in footer
+    { name: 'Games', path: '/games' }, // <-- Toegevoegd
+    { name: 'Verantwoord Spelen', path: '/verantwoord-gokken' },
+    { name: 'Over Ons', path: '/over-ons' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   useEffect(() => {
