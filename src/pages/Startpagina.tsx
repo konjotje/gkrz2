@@ -634,6 +634,14 @@ const Index = () => {
                     </div>
                   ))}
                 </div>
+                <div className="mt-4 p-4 border-t">
+                  <Button
+                    asChild
+                    className="w-full bg-gradient-to-r from-gokkerz-green to-green-600 text-sm text-white hover:opacity-90 sm:text-base"
+                  >
+                    <Link to="/casinos">Bekijk alle casino's</Link>
+                  </Button>
+                </div>
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -756,6 +764,18 @@ const Index = () => {
             )}
           </div>
 
+          <div className="mt-12 text-center">
+            <Button
+              asChild
+              size="lg"
+              className="button-pulse bg-green-gradient shadow-lg hover:opacity-90"
+            >
+              <Link to="/casinos" className="inline-flex items-center gap-2 px-8 py-6 text-lg">
+                Bekijk Alle Casino's
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -989,6 +1009,134 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Games & Experience Section */}
+      <section className="py-20">
+        <div className="container">
+          <div className="mb-16 text-center">
+            <div className="inline-block">
+              <span className="mb-4 inline-block rounded-full bg-gokkerz-green/10 px-4 py-1.5 text-sm font-medium text-gokkerz-green">
+                Casino Games
+              </span>
+            </div>
+            <h2 className="mb-6 text-4xl font-bold">Ontdek het Beste Spelaanbod</h2>
+            <p className="mx-auto max-w-2xl text-lg text-gray-600">
+              Van klassieke tafelspellen tot de nieuwste slots - vind de beste casino games bij onze
+              betrouwbare partners.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Online Slots */}
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex flex-col items-center">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎰</div>
+                </div>
+                <h3 className="mb-4 text-xl font-semibold">Online Slots</h3>
+                <ul className="w-full space-y-2 text-center sm:text-left">
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>1000+ video slots</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Klassieke fruitautomaten</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Jackpot slots</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Roulette */}
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex flex-col items-center">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎲</div>
+                </div>
+                <h3 className="mb-4 text-xl font-semibold">Roulette</h3>
+                <ul className="w-full space-y-2 text-center sm:text-left">
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Europees Roulette</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Live Roulette</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Auto Roulette</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Blackjack */}
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex flex-col items-center">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">♠️</div>
+                </div>
+                <h3 className="mb-4 text-xl font-semibold">Blackjack</h3>
+                <ul className="w-full space-y-2 text-center sm:text-left">
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Classic Blackjack</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Live Blackjack</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Speed Blackjack</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Live Casino */}
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex flex-col items-center">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center">
+                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎥</div>
+                </div>
+                <h3 className="mb-4 text-xl font-semibold">Live Casino</h3>
+                <ul className="w-full space-y-2 text-center sm:text-left">
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Live Dealers</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>Game Shows</span>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start">
+                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
+                    <span>VIP Tables</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button
+              asChild
+              size="lg"
+              className="button-pulse bg-green-gradient shadow-lg hover:opacity-90"
+            >
+              <Link to="/casinos" className="inline-flex items-center gap-2 px-8 py-6 text-lg">
+                Hier te spelen
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
 
 
