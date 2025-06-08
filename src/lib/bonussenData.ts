@@ -1,0 +1,35 @@
+export const bonusOffers = [
+  {
+    id: 1,
+    casinoName: 'TOTO Casino',
+    casinoLogo: '/casinologos/casilogos/toto.svg',
+    bonusAmount: '€1000',
+    freeSpins: 100,
+    description: '100% bonus tot €1000 + 100 Free Spins',
+    requirements: '24x inzet vereist',
+    rating: 4.8,
+    exclusive: true,
+  },
+  {
+    id: 2,
+    casinoName: 'BetCity',
+    casinoLogo: '/casinologos/casilogos/betcity.svg',
+    bonusAmount: '€250',
+    freeSpins: 100,
+    description: 'Welkomstbonus tot €250 + 100 Free Spins',
+    requirements: '24x inzet vereist',
+    rating: 4.7,
+  },
+  {
+    id: 3,
+    casinoName: 'Holland Casino',
+    casinoLogo: '/casinologos/casilogos/holland casino.svg',
+    bonusAmount: '€200',
+    freeSpins: 100,
+    description: '100% match bonus + free spins',
+    requirements: '20x inzet vereist',
+    rating: 4.9,
+    exclusive: true,
+  },
+  // ... Plaats hier de overige 24 bonussen uit Bonussen.tsx ...
+];
