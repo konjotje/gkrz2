@@ -330,7 +330,7 @@ const casinoBrandColors: Record<string, string> = {
   ZeBet: '#FFCC33',
 };
 
-const getCasinoUrl = (casinoName: string) => {
+export const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
     'TOTO Casino': 'https://www.toto.nl',
     'BetCity': 'https://www.betcity.nl',

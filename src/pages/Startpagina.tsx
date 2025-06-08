@@ -446,8 +446,8 @@ const Index = () => {
             <Link to="/verantwoord-gokken" className="group">
               <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-center">
                 <ThumbsUp className="h-12 w-12 mb-4 text-gokkerz-green" />
-                <h3 className="text-xl font-semibold mb-2">Verantwoord Spelen</h3>
-                <p className="text-gray-600">Tips en tools voor verantwoord gokken. Stel limieten in en houd het leuk.</p>
+                <h3 className="text-xl font-semibold mb-2">100% Betrouwbaar</h3>
+                <p className="text-gray-600">We reviewen alleen legale casino's met een Nederlandse vergunning van de Kansspelautoriteit.</p>
               </div>
             </Link>
             
@@ -552,7 +552,89 @@ const Index = () => {
 
           <div className="mb-16 overflow-hidden rounded-xl border bg-white shadow-lg">
             {isMobile ? (
-              <div className="space-y-4">{featuredCasinos.map(renderCasinoCard)}</div>
+              <div>
+                <div className="divide-y divide-gray-100">
+                  {featuredCasinos.slice(0, 4).map((casino) => (
+                    <div key={casino.id} className="p-3.5 transition-colors hover:bg-gray-50">
+                      <div className="flex items-stretch gap-5">
+                        {/* Logo Column */}
+                        <div className="flex w-[100px] flex-shrink-0 items-center">
+                          <div className="relative h-full w-full flex items-center justify-center">
+                            <img
+                              src={casino.logo}
+                              alt={`${casino.name} logo`}
+                              className={`h-24 w-24 object-contain ${casinoLogoStyles.logo}`}
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Content Column */}
+                        <div className="flex min-w-0 flex-1 flex-col justify-center space-y-2">
+                          {/* Title row with rating */}
+                          <div className="flex items-center gap-2">
+                            <div className="flex items-center rounded-full bg-gray-50/80 px-1.5 py-0.5">
+                              <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                              <span className="ml-0.5 text-sm font-semibold tabular-nums">{casino.rating}</span>
+                            </div>
+                            <h3 className="truncate text-[15px] font-bold text-gray-900 leading-none">{casino.name}</h3>
+                          </div>
+                          
+                          {/* Bonus en Features */}
+                          <div className="flex flex-col space-y-2">
+                            <div className="text-left">
+                              <span className="text-[13px] font-medium text-green-600 leading-none">
+                                {casino.bonus}
+                              </span>
+                            </div>
+
+                            <div className="flex flex-col gap-1.5">
+                              {casino.features.slice(0, 2).map((feature, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center leading-none"
+                                >
+                                  <Check className="mr-1.5 h-3 w-3 flex-shrink-0 text-green-600" />
+                                  <span className="text-[13px] text-gray-600">{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Actions Column */}
+                        <div className="flex w-[100px] flex-shrink-0 flex-col justify-center gap-3 py-1">
+                          <Button
+                            className="w-full bg-green-600 px-0 py-3 text-xs font-medium text-white shadow-sm transition-colors hover:bg-green-700"
+                            asChild
+                          >
+                            <a
+                              href={getCasinoUrl(casino.name)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`Bezoek ${casino.name}`}
+                            >
+                              Speel Nu
+                            </a>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="w-full px-0 py-3 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+                            asChild
+                          >
+                            <Link
+                              to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
+                              aria-label={`Bekijk ${casino.name} review`}
+                            >
+                              Review
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
@@ -674,18 +756,6 @@ const Index = () => {
             )}
           </div>
 
-          <div className="mt-12 text-center">
-            <Button
-              asChild
-              size="lg"
-              className="button-pulse bg-green-gradient shadow-lg hover:opacity-90"
-            >
-              <Link to="/casinos" className="inline-flex items-center gap-2 px-8 py-6 text-lg">
-                Bekijk Alle Casino's
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -915,303 +985,12 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="mt-12 rounded-2xl bg-white p-8 shadow-xl">
-              <h3 className="mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-center text-xl font-bold text-transparent">
-                Tips voor Casino Bonussen
-              </h3>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div className="flex flex-col items-center gap-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-xl p-6">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent">
-                    <Check className="h-5 w-5 text-gokkerz-green" />
-                  </div>
-                  <div>
-                    <h4 className="mb-2 font-semibold">Lees de Voorwaarden</h4>
-                    <p className="text-sm text-gray-600">
-                      Check altijd de inzetvereisten, maximale inzet en geldigheidsduur van elke
-                      bonus
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-center gap-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-xl p-6">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent">
-                    <Check className="h-5 w-5 text-gokkerz-green" />
-                  </div>
-                  <div>
-                    <h4 className="mb-2 font-semibold">Let op Restricted Games</h4>
-                    <p className="text-sm text-gray-600">
-                      Niet alle spellen tellen mee voor het vrijspelen van de bonus
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-center gap-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-xl p-6">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-transparent">
-                    <Check className="h-5 w-5 text-gokkerz-green" />
-                  </div>
-                  <div>
-                    <h4 className="mb-2 font-semibold">Maximale Uitbetaling</h4>
-                    <p className="text-sm text-gray-600">
-                      Controleer hoeveel je maximaal kunt winnen met bonusgeld
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Games & Experience Section */}
-      <section className="py-20">
-        <div className="container">
-          <div className="mb-16 text-center">
-            <div className="inline-block">
-              <span className="mb-4 inline-block rounded-full bg-gokkerz-green/10 px-4 py-1.5 text-sm font-medium text-gokkerz-green">
-                Casino Games
-              </span>
-            </div>
-            <h2 className="mb-6 text-4xl font-bold">Ontdek het Beste Spelaanbod</h2>
-            <p className="mx-auto max-w-2xl text-lg text-gray-600">
-              Van klassieke tafelspellen tot de nieuwste slots - vind de beste casino games bij onze
-              betrouwbare partners.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Online Slots */}
-            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center">
-                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎰</div>
-                </div>
-                <h3 className="mb-4 text-xl font-semibold">Online Slots</h3>
-                <ul className="w-full space-y-2 text-center sm:text-left">
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>1000+ video slots</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Klassieke fruitautomaten</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Jackpot slots</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
 
-            {/* Roulette */}
-            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center">
-                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎲</div>
-                </div>
-                <h3 className="mb-4 text-xl font-semibold">Roulette</h3>
-                <ul className="w-full space-y-2 text-center sm:text-left">
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Europees Roulette</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Live Roulette</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Auto Roulette</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Blackjack */}
-            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center">
-                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">♠️</div>
-                </div>
-                <h3 className="mb-4 text-xl font-semibold">Blackjack</h3>
-                <ul className="w-full space-y-2 text-center sm:text-left">
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Classic Blackjack</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Live Blackjack</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Speed Blackjack</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Live Casino */}
-            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="flex flex-col items-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center">
-                  <div className="mb-4 flex items-center justify-center text-[2.5rem] sm:text-[3.5rem]">🎥</div>
-                </div>
-                <h3 className="mb-4 text-xl font-semibold">Live Casino</h3>
-                <ul className="w-full space-y-2 text-center sm:text-left">
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Live Dealers</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>Game Shows</span>
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <Check className="mr-2 h-4 w-4 text-gokkerz-green" />
-                    <span>VIP Tables</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button
-              asChild
-              size="lg"
-              className="button-pulse bg-green-gradient shadow-lg hover:opacity-90"
-            >
-              <Link to="/casinos" className="inline-flex items-center gap-2 px-8 py-6 text-lg">
-                Hier te spelen
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-16">
-        <div className="container">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">Waarom Kiezen voor Gokkerz?</h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Bij Gokkerz streven we ernaar om jou de meest actuele en betrouwbare informatie te
-              geven over online casino's in Nederland.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="glassmorphism p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/10">
-                <Shield className="h-8 w-8 text-gokkerz-green" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold">100% Betrouwbaar</h3>
-              <p className="text-gray-600">
-                We reviewen alleen legale casino's met een Nederlandse vergunning van de
-                Kansspelautoriteit.
-              </p>
-            </div>
-
-            <div className="glassmorphism p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/10">
-                <Users className="h-8 w-8 text-gokkerz-green" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold">Expert Team</h3>
-              <p className="text-gray-600">
-                Ons team van casino experts test en beoordeelt elk casino grondig op verschillende
-                criteria.
-              </p>
-            </div>
-
-            <div className="glassmorphism p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gokkerz-green/10">
-                <Calendar className="h-8 w-8 text-gokkerz-green" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold">Altijd Up-to-Date</h3>
-              <p className="text-gray-600">
-                Onze informatie wordt dagelijks bijgewerkt om je de meest actuele bonussen en
-                promoties te bieden.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Latest Blog Posts */}
-      <section className="py-24">
-        <div className="container">
-          <div className="mb-16 text-center">
-            <span className="mb-4 inline-block rounded-full bg-gokkerz-green/10 px-4 py-1.5 text-sm font-medium text-gokkerz-green">
-              Casino Blog
-            </span>
-            <h2 className="mb-6 text-4xl font-bold">Laatste Casino Updates</h2>
-            <p className="mx-auto max-w-2xl text-lg text-gray-600">
-              Ontdek de nieuwste ontwikkelingen, expert reviews en strategische tips in de wereld
-              van online casino's
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {latestPosts.map((post) => (
-              <Card
-                key={post.id}
-                className="group overflow-hidden transition-all duration-300 hover:shadow-xl"
-              >
-                <div className="flex h-full flex-col">
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  </div>
-                  <CardContent className="flex-grow p-6">
-                    <div className="mb-3 flex items-center justify-center gap-4 text-sm text-gray-500">
-                      <div className="flex items-center">
-                        <Calendar className="mr-1 h-4 w-4" />
-                        {post.date}
-                      </div>
-                      <div className="flex items-center">
-                        <User className="mr-1 h-4 w-4" />
-                        {post.author}
-                      </div>
-                    </div>
-                    <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-gokkerz-green">
-                      <Link to={`/blog/${post.id}`}>{post.title}</Link>
-                    </h3>
-                    <p className="line-clamp-2 text-gray-600">{post.excerpt}</p>
-                  </CardContent>
-                  <CardFooter className="px-6 pb-6 pt-0">
-                    <Button asChild variant="outline" className="group/btn w-full">
-                      <Link to={`/blog/${post.id}`} className="flex items-center justify-center">
-                        Lees meer
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </CardFooter>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-2 border-gokkerz-green text-gokkerz-green transition-colors hover:bg-gokkerz-green hover:text-white"
-            >
-              <Link to="/blog" className="inline-flex items-center gap-2 px-8 py-6">
-                Bekijk Alle Artikelen
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* Vercel Analytics */}
       <Analytics />

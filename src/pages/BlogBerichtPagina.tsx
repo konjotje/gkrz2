@@ -3,8 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/layout/HoofdLayoutComponent';
 import { Button } from '@/components/ui/KnopComponent';
 import { BlogPostCard } from '@/components/BlogPostCard';
-import { BonusCard } from '@/components/BonusCard';
-import { Clock, User, Calendar, ArrowLeft, Share2 } from 'lucide-react';
+import { Clock, User, Calendar, ArrowLeft, Share2, Star, Check } from 'lucide-react';
+import { casinos, getCasinoUrl } from '@/pages/CasinoOverzichtPagina';
 import { blogPosts } from '../lib/blogBerichtenData';
 import { Helmet } from 'react-helmet';
 import { Analytics } from '@vercel/analytics/react';
@@ -18,57 +18,8 @@ const BlogPost = () => {
   const recentBlogs = blogPosts
     .filter((b) => b.slug !== slug)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 4);
+    .slice(0, 6);
 
-  // Top casino bonuses
-  const bonusOffers = [
-    {
-      id: 1,
-      casinoName: 'TOTO Casino',
-      casinoLogo: '/casinologos/casilogos/toto.svg',
-      bonusAmount: '€1000',
-      freeSpins: 100,
-      description: '100% bonus tot €1000 + 100 Free Spins',
-      requirements: '24x inzet vereist',
-      validUntil: '31-12-2025',
-      rating: 4.8,
-      exclusive: true,
-    },
-    {
-      id: 2,
-      casinoName: 'BetCity',
-      casinoLogo: '/casinologos/casilogos/betcity.svg',
-      bonusAmount: '€250',
-      freeSpins: 100,
-      description: 'Welkomstbonus tot €250 + 100 Free Spins',
-      requirements: '24x inzet vereist',
-      validUntil: '31-12-2025',
-      rating: 4.7,
-    },
-    {
-      id: 3,
-      casinoName: 'Holland Casino',
-      casinoLogo: '/casinologos/casilogos/holland casino.svg',
-      bonusAmount: '€200',
-      freeSpins: 100,
-      description: '100% match bonus + free spins',
-      requirements: '20x inzet vereist',
-      validUntil: '31-12-2025',
-      rating: 4.9,
-      exclusive: true,
-    },
-    {
-      id: 4,
-      casinoName: 'Kansino',
-      casinoLogo: '/casinologos/casilogos/kansino.svg',
-      bonusAmount: '€500',
-      freeSpins: 100,
-      description: 'Maximale bonus van €500 + gratis spins',
-      requirements: '25x inzet vereist',
-      validUntil: '31-12-2025',
-      rating: 4.6,
-    },
-  ];
 
   if (!post) {
     return (
@@ -251,23 +202,99 @@ const BlogPost = () => {
             <aside className="mt-8 w-full lg:mt-0 lg:w-[380px]">
               <div className="space-y-8 lg:sticky lg:top-24">
                 <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-lg sm:rounded-2xl sm:p-6">
-                  <h2 className="mb-4 flex items-center gap-2 text-lg font-bold sm:mb-6 sm:text-xl">
-                    <span className="h-5 w-1 rounded-full bg-gokkerz-green sm:h-6 sm:w-1.5"></span>
-                    Beste Casino Bonussen
-                  </h2>
-                  <div className="space-y-3 sm:space-y-4">
-                    {bonusOffers.map((offer) => (
-                      <BonusCard key={offer.id} offer={offer} />
-                    ))}
-                  </div>
-                  <div className="mt-4 sm:mt-6">
-                    <Button
-                      asChild
-                      className="w-full bg-gradient-to-r from-gokkerz-green to-green-600 text-sm text-white hover:opacity-90 sm:text-base"
-                    >
-                      <Link to="/bonussen">Bekijk alle bonussen</Link>
-                    </Button>
-                  </div>
+                <h2 className="mb-4 flex items-center gap-2 text-lg font-bold sm:mb-6 sm:text-xl">
+                  <span className="h-5 w-1 rounded-full bg-gokkerz-green sm:h-6 sm:w-1.5"></span>
+                  Alle Nederlandse Online Casinos
+                </h2>
+                <div className="divide-y divide-gray-100">
+                  {casinos.slice(0, 5).map((casino) => (
+                    <div key={casino.id} className="p-3.5 transition-colors hover:bg-gray-50">
+                      <div className="flex items-stretch gap-5">
+                        {/* Logo Column */}
+                        <div className="flex w-[100px] flex-shrink-0 items-center">
+                          <div className="relative h-full w-full flex items-center justify-center">
+                            <img
+                              src={casino.logo}
+                              alt={`${casino.name} logo`}
+                              className={`h-24 w-24 object-contain ${casino.logoClassName}`}
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Content Column */}
+                        <div className="flex min-w-0 flex-1 flex-col justify-center space-y-2">
+                          {/* Title row with rating */}
+                          <div className="flex items-center gap-2">
+                            <div className="flex items-center rounded-full bg-gray-50/80 px-1.5 py-0.5">
+                              <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                              <span className="ml-0.5 text-sm font-semibold tabular-nums">{casino.rating}</span>
+                            </div>
+                            <h3 className="truncate text-[15px] font-bold text-gray-900 leading-none">{casino.name}</h3>
+                          </div>
+                          
+                          {/* Bonus en Features */}
+                          <div className="flex flex-col space-y-2">
+                            <div className="text-left">
+                              <span className="text-[13px] font-medium text-green-600 leading-none">
+                                {casino.bonus.split('+')[0].trim()}
+                              </span>
+                            </div>
+
+                            <div className="flex flex-col gap-1.5">
+                              {casino.features.slice(0, 2).map((feature, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center leading-none"
+                                >
+                                  <Check className="mr-1.5 h-3 w-3 flex-shrink-0 text-green-600" />
+                                  <span className="text-[13px] text-gray-600">{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Actions Column */}
+                        <div className="flex w-[100px] flex-shrink-0 flex-col justify-center gap-3 py-1">
+                          <Button
+                            className="w-full bg-green-600 px-0 py-3 text-xs font-medium text-white shadow-sm transition-colors hover:bg-green-700"
+                            asChild
+                          >
+                            <a
+                              href={getCasinoUrl(casino.name)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`Bezoek ${casino.name}`}
+                            >
+                              Speel Nu
+                            </a>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="w-full px-0 py-3 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+                            asChild
+                          >
+                            <Link
+                              to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
+                              aria-label={`Bekijk ${casino.name} review`}
+                            >
+                              Review
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 sm:mt-6">
+                  <Button
+                    asChild
+                    className="w-full bg-gradient-to-r from-gokkerz-green to-green-600 text-sm text-white hover:opacity-90 sm:text-base"
+                  >
+                    <Link to="/casinos">Bekijk alle casino's</Link>
+                  </Button>
+                </div>
                 </div>
               </div>
             </aside>
