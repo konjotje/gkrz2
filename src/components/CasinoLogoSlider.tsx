@@ -95,7 +95,7 @@ const CasinoLogoSlider: React.FC = () => {
 
   return (
     <div
-      className="relative overflow-visible px-8 py-6"
+      className="relative overflow-visible px-8 pt-6 pb-12"
       style={{
         maskImage:
           "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 8%, rgba(255,255,255,0.8) 15%, #fff 25%, #fff 75%, rgba(255,255,255,0.8) 85%, rgba(255,255,255,0.1) 92%, transparent 100%)",
@@ -103,7 +103,7 @@ const CasinoLogoSlider: React.FC = () => {
           "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 8%, rgba(255,255,255,0.8) 15%, #fff 25%, #fff 75%, rgba(255,255,255,0.8) 85%, rgba(255,255,255,0.1) 92%, transparent 100%)",
       }}
     >
-      <div className="flex flex-col" style={{ rowGap: "2.0rem" }}>
+      <div className="flex flex-col overflow-visible" style={{ rowGap: "2.0rem" }}>
         {/* Top Row - Moving Right */}
         {renderRow(row1, "animate-scroll-right")}
         {/* Middle Row - Moving Left */}

@@ -86,3 +86,32 @@ export const shadowStyles = {
 export const casinoLogoStyles = {
   logo: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]"
 }
+
+// Casino card specific styles
+export const casinoCardStyles = {
+  wrapper: "transform-gpu transition-all duration-200 ease-out hover:translate-y-[-2px]",
+  container: "relative overflow-hidden bg-white",
+  content: "flex items-center gap-3 p-4",
+  logoWrapper: "relative min-w-[80px] flex-shrink-0",
+  logo: "w-full h-auto aspect-square object-contain rounded-lg",
+  ratingBadge: "absolute -right-1 -top-1 flex h-6 items-center justify-center rounded-full bg-white/95 px-2 shadow-sm",
+  infoSection: "flex-1 min-w-0",
+  bonusText: "text-sm font-medium line-clamp-2",
+  featuresWrapper: "flex flex-wrap gap-1.5 mt-1.5",
+  featureTag: "inline-flex items-center rounded-full bg-gray-50/80 px-2 py-0.5 text-xs font-medium",
+  actionsWrapper: "flex flex-col gap-2 flex-shrink-0",
+  primaryButton: "bg-gradient-to-r from-green-500 to-green-600 text-white min-w-[90px] py-2.5 px-3 rounded-lg font-medium text-sm shadow-sm hover:opacity-90 transition-all duration-200",
+  secondaryButton: "border border-gray-200 text-gray-700 min-w-[90px] py-2.5 px-3 rounded-lg font-medium text-sm hover:bg-gray-50 transition-all duration-200",
+}
+
+// Animation variants
+export const casinoCardAnimations = {
+  hover: {
+    scale: 1.02,
+    transition: { duration: 0.2, ease: 'easeOut' }
+  },
+  tap: {
+    scale: 0.98,
+    transition: { duration: 0.1, ease: 'easeOut' }
+  }
+}

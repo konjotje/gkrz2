@@ -44,33 +44,8 @@ const Footer = () => {
   return (
     <footer className="pt-16 pb-8 bg-white/50 backdrop-blur-sm">
       <div className="container mx-auto px-4">
-        {/* Main Footer */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {footerLinks.map((section) => (
-            <div key={section.title} className="col-span-1">
-              <h3 className="text-lg font-bold mb-4 text-gray-800 relative inline-block">
-                {section.title}
-                <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gokkerz-green/20"></span>
-              </h3>
-              <ul className="space-y-2.5">
-                {section.links.map((link) => (
-                  <li key={link.name} className="group">
-                    <Link
-                      to={link.path}
-                      className="text-gray-600 hover:text-gokkerz-green transition-colors inline-flex items-center"
-                    >
-                      <ChevronRight className="h-3 w-3 opacity-0 -ml-2 transition-all group-hover:opacity-100 group-hover:ml-0 text-gokkerz-green" />
-                      <span>{link.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
         {/* Enhanced Responsible Gambling Notice */}
-        <div className="mt-16 bg-white/50 backdrop-blur-sm rounded-xl relative overflow-hidden text-center">
+        <div className="mb-20 mt-16 bg-white/50 backdrop-blur-sm rounded-xl relative overflow-hidden text-center">
           <div className="relative z-10">
             {/* Header Section */}
             <div className="px-6 pt-8 pb-6 border-b border-gray-100">
@@ -136,6 +111,31 @@ const Footer = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Main Footer */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {footerLinks.map((section) => (
+            <div key={section.title} className="col-span-1">
+              <h3 className="text-lg font-bold mb-4 text-gray-800 relative inline-block">
+                {section.title}
+                <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gokkerz-green/20"></span>
+              </h3>
+              <ul className="space-y-2.5">
+                {section.links.map((link) => (
+                  <li key={link.name} className="group">
+                    <Link
+                      to={link.path}
+                      className="text-gray-600 hover:text-gokkerz-green transition-colors inline-flex items-center"
+                    >
+                      <ChevronRight className="h-3 w-3 opacity-0 -ml-2 transition-all group-hover:opacity-100 group-hover:ml-0 text-gokkerz-green" />
+                      <span>{link.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Bottom Footer */}

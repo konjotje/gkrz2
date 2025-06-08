@@ -75,14 +75,6 @@ const Blog = () => {
   const currentBlogs = filteredArticles.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.ceil(filteredArticles.length / blogsPerPage);
 
-  // Check if a blog is one of the three most recent
-  const isNewBlog = (blogDate: string) => {
-    const sortedDates = [...blogPosts]
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-      .slice(0, 3)
-      .map((post) => post.date);
-    return sortedDates.includes(blogDate);
-  };
 
   return (
     <Layout>
@@ -167,13 +159,6 @@ const Blog = () => {
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {currentBlogs.map((article) => (
             <div key={article.id} className="relative">
-              {isNewBlog(article.date) && (
-                <div className="absolute -right-2 -top-2 z-10">
-                  <span className="inline-flex animate-pulse items-center rounded-full bg-gokkerz-green px-2.5 py-0.5 text-xs font-medium text-white">
-                    NIEUW
-                  </span>
-                </div>
-              )}
               <BlogPostCard post={article} />
             </div>
           ))}

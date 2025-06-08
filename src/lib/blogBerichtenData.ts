@@ -34,7 +34,7 @@ export const blogPosts = [
       'Een overzicht van de beste welkomstbonussen en promoties bij Nederlandse online casino’s in mei 2025.',
     image: 'https://placehold.co/600x400/00CC66/FFFFFF/png?text=Bonussen+Mei+2025',
     date: '27 april 2025',
-    author: 'Bonus Expert',
+    author: 'Linde',
     content: `<p>Elke maand vergelijken wij de nieuwste bonussen. In mei 2025 zijn er weer scherpe aanbiedingen, van free spins tot hoge stortingsbonussen. Bekijk onze top 5 en kies de bonus die bij jou past!</p>`,
     readTime: '3 min',
   },
