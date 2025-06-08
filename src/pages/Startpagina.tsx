@@ -42,6 +42,8 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import CasinoLogoSlider from '@/components/CasinoLogoSlider';
 import { casinoLogoStyles } from '@/lib/styles';
 import { useMediaQuery } from 'react-responsive';
+import { blogPosts } from '@/lib/blogBerichtenData';
+import { BlogPostCard } from '@/components/BlogPostCard';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -427,6 +429,92 @@ const Index = () => {
           )}
         </div>
 
+      </section>
+
+      {/* Quick Links Section */}
+      <section className="py-12 bg-gradient-to-b from-white to-gray-50/50">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Link to="/casinos" className="group">
+              <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-center">
+                <Shield className="h-12 w-12 mb-4 text-gokkerz-green" />
+                <h3 className="text-xl font-semibold mb-2">Veilig & Legaal Gokken</h3>
+                <p className="text-gray-600">Ontdek betrouwbare online casino's met Nederlandse licentie en veilige betaalmethoden.</p>
+              </div>
+            </Link>
+            
+            <Link to="/verantwoord-gokken" className="group">
+              <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-center">
+                <ThumbsUp className="h-12 w-12 mb-4 text-gokkerz-green" />
+                <h3 className="text-xl font-semibold mb-2">Verantwoord Spelen</h3>
+                <p className="text-gray-600">Tips en tools voor verantwoord gokken. Stel limieten in en houd het leuk.</p>
+              </div>
+            </Link>
+            
+            <Link to="/bonussen" className="group">
+              <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-center">
+                <Gift className="h-12 w-12 mb-4 text-gokkerz-green" />
+                <h3 className="text-xl font-semibold mb-2">Beste Bonussen</h3>
+                <p className="text-gray-600">Vergelijk de beste casino bonussen en free spins aanbiedingen van dit moment.</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Blog Posts Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50/50 to-white">
+        <div className="container">
+          <div className="text-center mb-16">
+            <span className="inline-block rounded-full bg-gokkerz-green/10 px-4 py-1.5 text-sm font-medium text-gokkerz-green mb-4">
+              Casino Blog
+            </span>
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+              Laatste Casino Updates
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Blijf op de hoogte van het laatste casino nieuws, reviews en expert tips
+            </p>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:grid grid-cols-12 gap-8">
+            {/* Featured Large Blog Post */}
+            <div className="col-span-6">
+              <BlogPostCard post={blogPosts[0]} variant="featured" />
+            </div>
+
+            {/* 2x2 Grid of Square Posts */}
+            <div className="col-span-6 grid grid-cols-2 gap-6">
+              {blogPosts.slice(1, 5).map((post) => (
+                <BlogPostCard key={post.id} post={post} variant="square" />
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="lg:hidden space-y-6">
+            {/* Featured Large Blog Post */}
+            <BlogPostCard post={blogPosts[0]} variant="featured" />
+
+            {/* 2x2 Grid of Square Posts */}
+            <div className="grid grid-cols-2 gap-4">
+              {blogPosts.slice(1, 5).map((post) => (
+                <BlogPostCard key={post.id} post={post} variant="square" />
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center mt-16">
+            <Button asChild size="lg" className="button-pulse bg-green-gradient shadow-lg hover:opacity-90 px-8 py-6">
+              <Link to="/blog" className="inline-flex items-center gap-2 text-lg font-semibold">
+                Alle Artikelen Bekijken
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
       </section>
 
       {/* Featured Casinos Section */}

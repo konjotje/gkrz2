@@ -13,7 +13,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gokkerz-off-white">
+    <div className="w-full min-h-screen flex flex-col">
       <ScrollToTopOnMount />
       <KoptekstComponent />
       <main className="flex-grow w-full pt-12 sm:pt-16 transition-all duration-300">
