@@ -25,6 +25,7 @@ import HeroHeader from '@/components/HeroHeader';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { casinoLogoStyles } from '@/lib/styles';
+import { adjustColor } from '@/lib/utils';
 
 export const casinos = [
   {
@@ -365,83 +366,91 @@ const getCasinoUrl = (casinoName: string) => {
 const Casinos = () => {
   const isMobile = useMediaQuery('(max-width: 1023px)');
 
-  const renderCasinoCard = (casino: (typeof casinos)[0]) => (
-    <Card
-      key={casino.id}
-      className="casino-card-hover flex flex-col"
-      style={{
-        ['--brand-shadow-color' as any]: `${casinoBrandColors[casino.name] || '#00CC66'}40`,
-      }}
-    >
-      <CardHeader className="relative p-4 text-center">
-        <div className="flex flex-col items-center">
-          <div className="mb-4 w-[100px] mx-auto">
-            <img
-              src={casino.logo}
-              alt={casino.name}
-              className={`h-auto w-full object-contain ${casinoLogoStyles.logo}`}
-            />
+  const renderCasinoCard = (casino: (typeof casinos)[0]) => {
+    const mainBonus = casino.bonus.split('+')[0].trim();
+    
+    return (
+      <div className="p-3.5 transition-colors hover:bg-gray-50">
+        <div className="flex items-stretch gap-5">
+          {/* Logo Column */}
+          <div className="flex w-[100px] flex-shrink-0 items-center">
+            <div className="relative h-full w-full flex items-center justify-center">
+              <img
+                src={casino.logo}
+                alt={`${casino.name} logo`}
+                className={`h-24 w-24 object-contain ${casino.logoClassName}`}
+                loading="lazy"
+              />
+            </div>
           </div>
-          <div className="flex justify-center items-center rounded-full bg-white/90 px-2 py-0.5 shadow-sm">
-            <Star className="mr-0.5 h-3 w-3 fill-yellow-400 text-yellow-400" />
-            <span className="text-xs font-medium">{casino.rating}</span>
-          </div>
-          <CardTitle className="mb-3 text-lg">{casino.name}</CardTitle>
-        </div>
-        <div className="space-y-2">
-          <CardDescription className="flex flex-col items-center">
-            {casino.bonus.includes('+') ? (
-              <>
-                <span className="mb-2 text-4xl font-bold text-black">
-                  {casino.bonus.split('+')[0].trim()}
+
+          {/* Content Column - Met optimale spacing */}
+          <div className="flex min-w-0 flex-1 flex-col justify-center space-y-2">
+            {/* Title row with rating */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center rounded-full bg-gray-50/80 px-1.5 py-0.5">
+                <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                <span className="ml-0.5 text-sm font-semibold tabular-nums">{casino.rating}</span>
+              </div>
+              <h3 className="truncate text-[15px] font-bold text-gray-900 leading-none">{casino.name}</h3>
+            </div>
+            
+            {/* Bonus en Features in een flex container */}
+            <div className="flex flex-col space-y-2">
+              {/* Bonus text - Kleiner */}
+              <div className="text-left">
+                <span className="text-[13px] font-medium text-green-600 leading-none">
+                  {mainBonus}
                 </span>
-                <span className="text-lg text-gray-500">+ {casino.bonus.split('+')[1].trim()}</span>
-              </>
-            ) : (
-              <span className="mb-2 text-4xl font-bold text-black">{casino.bonus}</span>
-            )}
-            <span className="mt-2 text-sm font-medium text-gray-500">
-              Min. Storting: {casino.minDeposit}
-            </span>
-          </CardDescription>
-        </div>
-      </CardHeader>
-      <CardContent className="flex-grow px-4 py-2 text-center">
-        <ul className="space-y-2">
-          {casino.features.map((feature, index) => (
-            <li key={index} className="flex items-center justify-center text-sm">
-              <Check className="mr-2 h-4 w-4 flex-shrink-0 text-gokkerz-green" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-      <CardFooter className="px-4 pb-4 pt-2">
-        <div className="flex w-full flex-col gap-2">
-          <Button
-            className="button-pulse w-full bg-green-gradient py-6 text-base font-semibold shadow-md hover:opacity-90"
-            asChild
-          >
-            <a
-              href={getCasinoUrl(casino.name)}
-              target="_blank"
-              rel="noopener noreferrer"
+              </div>
+
+              {/* Features list */}
+              <div className="flex flex-col gap-1.5">
+                {casino.features.slice(0, 2).map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center leading-none"
+                  >
+                    <Check className="mr-1.5 h-3 w-3 flex-shrink-0 text-green-600" />
+                    <span className="text-[13px] text-gray-600">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Actions Column - Aangepaste button hoogtes */}
+          <div className="flex w-[100px] flex-shrink-0 flex-col justify-center gap-3 py-1">
+            <Button
+              className="w-full bg-green-600 px-0 py-3 text-xs font-medium text-white shadow-sm transition-colors hover:bg-green-700"
+              asChild
             >
-              Bezoek Casino
-            </a>
-          </Button>
-          <Button variant="outline" className="w-full text-sm shadow-sm" asChild>
-            <Link
-              to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
-              className="flex w-full items-center justify-center"
+              <a
+                href={getCasinoUrl(casino.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Bezoek ${casino.name}`}
+              >
+                Speel Nu
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full px-0 py-3 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+              asChild
             >
-              Lees Review
-            </Link>
-          </Button>
+              <Link
+                to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
+                aria-label={`Bekijk ${casino.name} review`}
+              >
+                Review
+              </Link>
+            </Button>
+          </div>
         </div>
-      </CardFooter>
-    </Card>
-  );
+      </div>
+    );
+  };
 
   return (
     <Layout>
@@ -519,134 +528,138 @@ const Casinos = () => {
         ]}
       />
       <div className="container mx-auto px-4">
-        {/* Casino Vergelijkingstabel */}
-        <div className="mb-16 overflow-hidden rounded-xl border bg-white shadow-lg">
-          {isMobile ? (
-            <div className="space-y-4">{casinos.map(renderCasinoCard)}</div>
-          ) : (
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-gradient-to-r from-gray-50 to-gray-100">
-                    <TableHead className="w-[350px] py-6 text-base">Casino</TableHead>
-                    <TableHead className="py-6 text-base">Rating</TableHead>
-                    <TableHead className="w-[200px] py-6 text-base">Welkomstbonus</TableHead>
-                    <TableHead className="py-6 text-base">Min. Storting</TableHead>
-                    <TableHead className="py-6 text-base">Kenmerken</TableHead>
-                    <TableHead className="py-6 text-base">Actie</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {casinos.map((casino) => (
-                    <TableRow
-                      key={casino.id}
-                      className="group transition-colors duration-200 hover:bg-gray-50/80"
-                    >
-                      <TableCell className="py-6 font-medium">
-                        <div className="flex items-center gap-12">
-                          <div className="w-[100px] flex-shrink-0">
-                            <img
-                              src={casino.logo}
-                              alt={casino.name}
-                              className={`h-auto w-full object-contain ${casinoLogoStyles.logo}`}
-                            />
-                          </div>
-                          <div className="min-w-[120px] flex-grow">
-                            <span className="block text-left text-lg font-semibold transition-colors group-hover:text-gokkerz-green">
-                              {casino.name}
-                            </span>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-2">
-                          <div className="flex">
-                            {[...Array(5)].map((_, index) => (
-                              <Star
-                                key={index}
-                                className={`h-5 w-5 transition-all duration-200 ${
-                                  index < Math.floor(casino.rating)
-                                    ? 'fill-yellow-400 text-yellow-400 group-hover:scale-110'
-                                    : 'text-gray-200'
-                                }`}
-                              />
-                            ))}
-                          </div>
-                          <span className="ml-2 font-medium">{casino.rating}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex flex-col gap-1">
-                          {casino.bonus.includes('+') ? (
-                            <>
-                              <span className="text-left font-medium text-green-600 transition-colors group-hover:text-green-700">
-                                {casino.bonus.split('+')[0].trim()}
-                              </span>
-                              <span className="text-left text-sm text-gray-500">
-                                + {casino.bonus.split('+')[1].trim()}
-                              </span>
-                            </>
-                          ) : (
-                            <span className="text-left font-medium text-green-600 transition-colors group-hover:text-green-700">
-                              {casino.bonus}
-                            </span>
-                          )}
-                          <span className="text-left text-sm text-gray-500">
-                            Bij eerste storting
-                          </span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium transition-colors group-hover:bg-gray-200">
-                          {casino.minDeposit}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <ul className="space-y-1.5">
-                          {casino.features.map((feature, index) => (
-                            <li
-                              key={index}
-                              className="flex items-center gap-2 text-left text-sm transition-transform group-hover:translate-x-1"
-                            >
-                              <div className="h-1.5 w-1.5 rounded-full bg-gokkerz-green/60"></div>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex flex-col gap-3">
-                          <Button
-                            className="bg-green-gradient py-6 text-base font-semibold shadow-sm transition-all duration-200 hover:scale-105 hover:opacity-90 hover:shadow-md"
-                            asChild
-                          >
-                            <a
-                              href={getCasinoUrl(casino.name)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Bezoek casino
-                            </a>
-                          </Button>
-                          <Button
-                            variant="outline"
-                            className="py-6 transition-all duration-200 hover:bg-gray-50/80"
-                            asChild
-                          >
-                            <Link
-                              to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
-                            >
-                              Lees Review
-                            </Link>
-                          </Button>
-                        </div>
-                      </TableCell>
+        {/* Casino Cards Container */}
+        <div className="relative mb-16">
+          <div className="overflow-hidden rounded-xl border bg-white shadow-lg">
+            {isMobile ? (
+              <div className="divide-y divide-gray-100">
+                {casinos.map((casino) => renderCasinoCard(casino))}
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="bg-gradient-to-r from-gray-50 to-gray-100">
+                      <TableHead className="w-[350px] py-6 text-base">Casino</TableHead>
+                      <TableHead className="py-6 text-base">Rating</TableHead>
+                      <TableHead className="w-[200px] py-6 text-base">Welkomstbonus</TableHead>
+                      <TableHead className="py-6 text-base">Min. Storting</TableHead>
+                      <TableHead className="py-6 text-base">Kenmerken</TableHead>
+                      <TableHead className="py-6 text-base">Actie</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          )}
+                  </TableHeader>
+                  <TableBody>
+                    {casinos.map((casino) => (
+                      <TableRow
+                        key={casino.id}
+                        className="group transition-colors duration-200 hover:bg-gray-50/80"
+                      >
+                        <TableCell className="py-6 font-medium">
+                          <div className="flex items-center gap-12">
+                            <div className="w-[100px] flex-shrink-0">
+                              <img
+                                src={casino.logo}
+                                alt={casino.name}
+                                className={`h-auto w-full object-contain ${casinoLogoStyles.logo}`}
+                              />
+                            </div>
+                            <div className="min-w-[120px] flex-grow">
+                              <span className="block text-left text-lg font-semibold transition-colors group-hover:text-gokkerz-green">
+                                {casino.name}
+                              </span>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center gap-2">
+                            <div className="flex">
+                              {[...Array(5)].map((_, index) => (
+                                <Star
+                                  key={index}
+                                  className={`h-5 w-5 transition-all duration-200 ${
+                                    index < Math.floor(casino.rating)
+                                      ? 'fill-yellow-400 text-yellow-400 group-hover:scale-110'
+                                      : 'text-gray-200'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                            <span className="ml-2 font-medium">{casino.rating}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex flex-col gap-1">
+                            {casino.bonus.includes('+') ? (
+                              <>
+                                <span className="text-left font-medium text-green-600 transition-colors group-hover:text-green-700">
+                                  {casino.bonus.split('+')[0].trim()}
+                                </span>
+                                <span className="text-left text-sm text-gray-500">
+                                  + {casino.bonus.split('+')[1].trim()}
+                                </span>
+                              </>
+                            ) : (
+                              <span className="text-left font-medium text-green-600 transition-colors group-hover:text-green-700">
+                                {casino.bonus}
+                              </span>
+                            )}
+                            <span className="text-left text-sm text-gray-500">
+                              Bij eerste storting
+                            </span>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium transition-colors group-hover:bg-gray-200">
+                            {casino.minDeposit}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <ul className="space-y-1.5">
+                            {casino.features.map((feature, index) => (
+                              <li
+                                key={index}
+                                className="flex items-center gap-2 text-left text-sm transition-transform group-hover:translate-x-1"
+                              >
+                                <div className="h-1.5 w-1.5 rounded-full bg-gokkerz-green/60"></div>
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex flex-col gap-3">
+                            <Button
+                              className="bg-green-gradient py-6 text-base font-semibold shadow-sm transition-all duration-200 hover:scale-105 hover:opacity-90 hover:shadow-md"
+                              asChild
+                            >
+                              <a
+                                href={getCasinoUrl(casino.name)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Bezoek casino
+                              </a>
+                            </Button>
+                            <Button
+                              variant="outline"
+                              className="py-6 transition-all duration-200 hover:bg-gray-50/80"
+                              asChild
+                            >
+                              <Link
+                                to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
+                              >
+                                Lees Review
+                              </Link>
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Extra SEO-content onder de tabel */}
