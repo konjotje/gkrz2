@@ -445,31 +445,30 @@ const Casinos = () => {
       <div className="container mx-auto px-4">
         {/* Casino Cards Container */}
         <div className="relative mb-16">
-          <div className="overflow-hidden rounded-xl border bg-white shadow-lg">
-            {isMobile ? (
-              <div className="divide-y divide-gray-100">
-                {casinos.map((casino) => (
-                  <CasinoCardLayout
-                    key={casino.id}
-                    casino={casino}
-                    getCasinoUrl={getCasinoUrl}
-                    layout="mobile"
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="grid grid-cols-3 gap-8 p-8 bg-white/80">
-                {casinos.map((casino) => (
-                  <CasinoCardLayout
-                    key={casino.id}
-                    casino={casino}
-                    getCasinoUrl={getCasinoUrl}
-                    layout="desktop"
-                  />
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Verwijder de wrapper met bg-white, border, shadow, rounded-xl */}
+          {isMobile ? (
+            <div className="divide-y divide-gray-100">
+              {casinos.map((casino) => (
+                <CasinoCardLayout
+                  key={casino.id}
+                  casino={casino}
+                  getCasinoUrl={getCasinoUrl}
+                  layout="mobile"
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-3 gap-8">
+              {casinos.map((casino) => (
+                <CasinoCardLayout
+                  key={casino.id}
+                  casino={casino}
+                  getCasinoUrl={getCasinoUrl}
+                  layout="desktop"
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Extra SEO-content onder de tabel */}

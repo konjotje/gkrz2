@@ -52,7 +52,7 @@ const CasinoCardLayout: React.FC<CasinoCardLayoutProps> = ({ casino, getCasinoUr
           {/* Content Column */}
           <div className="flex min-w-0 flex-1 flex-col justify-center gap-1">
             <div className="flex items-center gap-2">
-              <div className="flex items-center rounded-full bg-white px-2 py-0.5 shadow-[0_2px_8px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(0,0,0,0.08)]">
+              <div className="flex items-center rounded-full bg-gray-50/80 px-1 py-0.5">
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                 <span className="ml-0.5 text-xs font-semibold tabular-nums text-gray-900">{casino.rating}</span>
               </div>
@@ -122,7 +122,7 @@ const CasinoCardLayout: React.FC<CasinoCardLayoutProps> = ({ casino, getCasinoUr
         <div className="flex flex-col items-center gap-1 w-full">
           <span className="text-center text-base font-bold text-gray-900 truncate w-full">{casino.name}</span>
           <div className="flex items-center gap-1 mt-1">
-            <div className="flex items-center rounded-full bg-white px-2 py-0.5 shadow-[0_2px_8px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(0,0,0,0.08)]">
+            <div className="flex items-center rounded-full bg-gray-50/80 px-1 py-0.5">
               <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
               <span className="ml-0.5 text-xs font-semibold tabular-nums text-gray-900">{casino.rating}</span>
             </div>

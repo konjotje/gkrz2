@@ -44,6 +44,8 @@ import { casinoLogoStyles } from '@/lib/styles';
 import { useMediaQuery } from 'react-responsive';
 import { blogPosts } from '@/lib/blogBerichtenData';
 import { BlogPostCard } from '@/components/BlogPostCard';
+import CasinoCardLayout from '@/components/CasinoCardLayout';
+import BonusCardRedesign from '@/components/BonusCardRedesign';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -550,219 +552,31 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mb-16 overflow-hidden rounded-xl border bg-white shadow-lg">
+          {/* VERWIJDERD: <div className="mb-16 overflow-hidden rounded-xl border bg-white shadow-lg"> */}
             {isMobile ? (
-              <div>
-                <div className="divide-y divide-gray-100">
-                  {featuredCasinos.slice(0, 4).map((casino) => (
-                    <div key={casino.id} className="p-3.5 transition-colors hover:bg-gray-50">
-                      <div className="flex items-stretch gap-5">
-                        {/* Logo Column */}
-                        <div className="flex w-[100px] flex-shrink-0 items-center">
-                          <div className="relative h-full w-full flex items-center justify-center">
-                            <img
-                              src={casino.logo}
-                              alt={`${casino.name} logo`}
-                              className={`h-24 w-24 object-contain ${casinoLogoStyles.logo}`}
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-
-                        {/* Content Column */}
-                        <div className="flex min-w-0 flex-1 flex-col justify-center space-y-2">
-                          {/* Title row with rating */}
-                          <div className="flex items-center gap-2">
-                            <div className="flex items-center rounded-full bg-gray-50/80 px-1.5 py-0.5">
-                              <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                              <span className="ml-0.5 text-sm font-semibold tabular-nums">{casino.rating}</span>
-                            </div>
-                            <h3 className="truncate text-[15px] font-bold text-gray-900 leading-none">{casino.name}</h3>
-                          </div>
-                          
-                          {/* Bonus en Features */}
-                          <div className="flex flex-col space-y-2">
-                            <div className="text-left">
-                              <span className="text-[13px] font-medium text-green-600 leading-none">
-                                {casino.bonus}
-                              </span>
-                            </div>
-
-                            <div className="flex flex-col gap-1.5">
-                              {casino.features.slice(0, 2).map((feature, index) => (
-                                <div
-                                  key={index}
-                                  className="flex items-center leading-none"
-                                >
-                                  <Check className="mr-1.5 h-3 w-3 flex-shrink-0 text-green-600" />
-                                  <span className="text-[13px] text-gray-600">{feature}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Actions Column */}
-                        <div className="flex w-[100px] flex-shrink-0 flex-col justify-center gap-3 py-1">
-                          <Button
-                            className="w-full bg-green-600 px-0 py-3 text-xs font-medium text-white shadow-sm transition-colors hover:bg-green-700"
-                            asChild
-                          >
-                            <a
-                              href={getCasinoUrl(casino.name)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`Bezoek ${casino.name}`}
-                            >
-                              Speel Nu
-                            </a>
-                          </Button>
-                          <Button
-                            variant="outline"
-                            className="w-full px-0 py-3 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-                            asChild
-                          >
-                            <Link
-                              to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
-                              aria-label={`Bekijk ${casino.name} review`}
-                            >
-                              Review
-                            </Link>
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 p-4 border-t">
-                  <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-gokkerz-green to-green-600 text-sm text-white hover:opacity-90 sm:text-base"
-                  >
-                    <Link to="/casinos">Bekijk alle casino's</Link>
-                  </Button>
-                </div>
+              <div className="divide-y divide-gray-100">
+                {featuredCasinos.slice(0, 4).map((casino) => (
+                  <CasinoCardLayout
+                    key={casino.id}
+                    casino={casino}
+                    getCasinoUrl={getCasinoUrl}
+                    layout="mobile"
+                  />
+                ))}
               </div>
             ) : (
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="bg-gradient-to-r from-gray-50 to-gray-100">
-                      <TableHead className="py-6 text-base">Casino</TableHead>
-                      <TableHead className="py-6 text-base">Rating</TableHead>
-                      <TableHead className="py-6 text-base">Welkomstbonus</TableHead>
-                      <TableHead className="py-6 text-base">Min. Storting</TableHead>
-                      <TableHead className="py-6 text-base">Kenmerken</TableHead>
-                      <TableHead className="py-6 text-base">Actie</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {featuredCasinos.map((casino) => (
-                      <TableRow
-                        key={casino.id}
-                        className="group transition-colors duration-200 hover:bg-gray-50/80"
-                      >
-                        <TableCell className="py-6 font-medium">
-                          <div className="flex items-center gap-6">
-                            <div className="flex min-w-[160px] items-center justify-center">
-                              <img
-                                src={casino.logo}
-                                alt={casino.name}
-                                className="h-20 w-20 object-contain"
-                              />
-                            </div>
-                            <span className="text-lg font-semibold transition-colors group-hover:text-gokkerz-green">
-                              {casino.name}
-                            </span>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex items-center gap-2">
-                            <div className="flex">
-                              {[...Array(5)].map((_, index) => (
-                                <Star
-                                  key={index}
-                                  className={`h-5 w-5 transition-all duration-200 ${
-                                    index < Math.floor(casino.rating)
-                                      ? 'fill-yellow-400 text-yellow-400 group-hover:scale-110'
-                                      : 'text-gray-200'
-                                  }`}
-                                />
-                              ))}
-                            </div>
-                            <span className="ml-2 font-medium">{casino.rating}</span>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex flex-col gap-1">
-                            {casino.bonus.includes('+') ? (
-                              <>
-                                <span className="text-left font-medium text-green-600 transition-colors group-hover:text-green-700">
-                                  {casino.bonus.split('+')[0].trim()}
-                                </span>
-                                <span className="text-left text-sm text-gray-500">
-                                  + {casino.bonus.split('+')[1].trim()}
-                                </span>
-                              </>
-                            ) : (
-                              <span className="text-left font-medium text-green-600 transition-colors group-hover:text-green-700">
-                                {casino.bonus}
-                              </span>
-                            )}
-                            <span className="text-left text-sm text-gray-500">
-                              Bij eerste storting
-                            </span>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium transition-colors group-hover:bg-gray-200">
-                            {casino.minDeposit}
-                          </span>
-                        </TableCell>
-                        <TableCell>
-                          <ul className="space-y-1.5">
-                            {casino.features.map((feature, index) => (
-                              <li
-                                key={index}
-                                className="flex items-center gap-2 text-left text-sm transition-transform group-hover:translate-x-1"
-                              >
-                                <div className="h-1.5 w-1.5 rounded-full bg-gokkerz-green/60"></div>
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex flex-col gap-3">
-                            <Button className="bg-green-gradient py-6 text-base font-semibold shadow-sm transition-all duration-200 hover:scale-105 hover:opacity-90 hover:shadow-md" asChild>
-                              <a
-                                href={getCasinoUrl(casino.name)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                Bezoek casino
-                              </a>
-                            </Button>
-                            <Button
-                              variant="outline"
-                              className="py-6 transition-all duration-200 hover:bg-gray-50/80"
-                              asChild
-                            >
-                              <Link
-                                to={`/casinos/${casino.name.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
-                              >
-                                Lees Review
-                              </Link>
-                            </Button>
-                          </div>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+              <div className="grid grid-cols-4 gap-8">
+                {featuredCasinos.slice(0, 4).map((casino) => (
+                  <CasinoCardLayout
+                    key={casino.id}
+                    casino={casino}
+                    getCasinoUrl={getCasinoUrl}
+                    layout="desktop"
+                  />
+                ))}
               </div>
             )}
-          </div>
+          {/* VERWIJDERD: </div> */}
 
           <div className="mt-12 text-center">
             <Button
@@ -797,78 +611,20 @@ const Index = () => {
 
           <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {featuredBonuses.map((bonus) => (
-              <Card
+              <BonusCardRedesign
                 key={bonus.casino}
-                className="group flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                style={{
-                  ['--brand-shadow-color' as any]: `${casinoBrandColors[bonus.casino] || '#00CC66'}20`,
+                offer={{
+                  id: bonus.id || bonus.casino,
+                  casinoName: bonus.casino,
+                  casinoLogo: bonus.logo,
+                  bonusAmount: bonus.amount,
+                  freeSpins: bonus.freeSpins || 0,
+                  description: bonus.description,
+                  requirements: bonus.requirements,
+                  rating: bonus.rating || 4.5,
                 }}
-              >
-                <CardHeader className="relative bg-gradient-to-b from-white to-gray-50/30 p-6 text-center">
-                  <div className="flex flex-col items-center">
-                    <div className="relative mb-6">
-                      <img
-                        src={bonus.logo}
-                        alt={bonus.casino}
-                        className={`h-24 w-auto transition-transform duration-300 group-hover:scale-105 ${casinoLogoStyles.logo}`}
-                      />
-                      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 transform">
-                        <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-md">
-                          <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                          <span className="text-xs font-semibold">4.5/5</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <CardTitle className="text-lg">{bonus.casino}</CardTitle>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 space-y-1">
-                    <span className="text-3xl font-bold text-gray-900">{bonus.amount}</span>
-                    <p className="text-sm font-medium text-gray-500">{bonus.description}</p>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="flex-grow px-6 py-4">
-                  <ul className="space-y-2">
-                    <li className="flex items-center text-sm">
-                      <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gokkerz-green/10 transition-colors group-hover:bg-gokkerz-green/15">
-                        <Check className="h-4 w-4 text-gokkerz-green" />
-                      </div>
-                      <span className="text-gray-600">{bonus.requirements}</span>
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gokkerz-green/10 transition-colors group-hover:bg-gokkerz-green/15">
-                        <Check className="h-4 w-4 text-gokkerz-green" />
-                      </div>
-                      <span className="text-gray-600">Nederlandse licentie</span>
-                    </li>
-                  </ul>
-                </CardContent>
-
-                <CardFooter className="bg-gradient-to-t from-gray-50/50 to-white p-6 pt-4">
-                  <div className="flex w-full flex-col gap-2">
-                    <Button className="button-pulse w-full bg-green-gradient py-6 text-base font-semibold shadow-md hover:opacity-90" asChild>
-                      <a
-                        href={getCasinoUrl(bonus.casino)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Claim Bonus
-                      </a>
-                    </Button>
-                    <Button variant="outline" className="w-full" asChild>
-                      <Link
-                        to={`/casino/${bonus.casino.toLowerCase()}`}
-                        className="flex items-center justify-center text-sm"
-                      >
-                        Lees Review
-                      </Link>
-                    </Button>
-                  </div>
-                </CardFooter>
-              </Card>
+                getCasinoUrl={getCasinoUrl}
+              />
             ))}
           </div>
 
