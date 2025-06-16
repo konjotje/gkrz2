@@ -45,6 +45,7 @@ import HeroHeader from '@/components/HeroHeader';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { BonusCard } from '@/components/BonusCard';
+import BonusCardRedesign from '@/components/BonusCardRedesign';
 
 const Bonussen = () => {
   // Bonus offers data with all casinos
@@ -364,6 +365,39 @@ const Bonussen = () => {
     return filtered;
   }, [bonusOffers, selectedType, searchQuery]);
 
+  const getCasinoUrl = (casinoName: string) => {
+    const urls: { [key: string]: string } = {
+      'TOTO Casino': 'https://www.toto.nl',
+      'BetCity': 'https://www.betcity.nl',
+      'Holland Casino': 'https://www.hollandcasino.nl',
+      'Kansino': 'https://www.kansino.nl',
+      'Circus Casino': 'https://www.circus.nl',
+      "Jack's Casino": 'https://www.jacks.nl',
+      'Unibet': 'https://www.unibet.nl',
+      'LeoVegas': 'https://www.leovegas.nl',
+      '777': 'https://www.casino777.nl',
+      'Fair Play': 'https://www.fairplaycasino.nl',
+      '365': 'https://www.bet365.nl',
+      '711': 'https://www.711.nl',
+      'Bet MGM': 'https://www.betmgm.nl',
+      'BetNation': 'https://www.betnation.nl',
+      'Bingoal': 'https://www.bingoal.nl',
+      'ComeOn': 'https://www.comeon.nl',
+      'GGPoker': 'https://www.ggpoker.nl',
+      'Goldrun Casino': 'https://www.goldruncasino.nl',
+      'Hard Rock Casino': 'https://www.hardrockcasino.nl',
+      'Hommerson': 'https://www.hommerson.nl',
+      'Lucky 7 Casino': 'https://www.lucky7.nl',
+      'One Casino': 'https://www.onecasino.nl',
+      'Scori Pro': 'https://www.scoripro.nl',
+      'TonyBet': 'https://www.tonybet.nl',
+      'VBet': 'https://www.vbet.nl',
+      'Winnit': 'https://www.winnit.nl',
+      'ZeBet': 'https://www.zebet.nl',
+    };
+    return urls[casinoName] || '#';
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -518,7 +552,7 @@ const Bonussen = () => {
         {/* Bonus Cards Grid */}
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {filteredBonuses.map((offer) => (
-            <BonusCard key={offer.id} offer={offer} />
+            <BonusCardRedesign key={offer.id} offer={offer} getCasinoUrl={getCasinoUrl} />
           ))}
         </div>
 
