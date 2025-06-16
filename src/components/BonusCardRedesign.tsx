@@ -31,22 +31,27 @@ const BonusCardRedesign: React.FC<BonusCardRedesignProps> = ({ offer, getCasinoU
       style={{ ...glassStyle, minHeight: 340 }}
     >
       {/* Groot logo */}
-      <img
-        src={offer.casinoLogo}
-        alt={offer.casinoName}
-        className="h-24 w-24 object-contain mb-4"
-        style={{ 
-          borderRadius: 20,
-          boxShadow: '10px 10px 16px #969696, -5px -5px 16px #ffffff, inset 1px 1px 2px #969696, inset -1px -1px 2px #ffffff'
-        }}
-        loading="lazy"
-      />
-      {/* Rating en naam */}
-      <div className="flex items-center gap-2 w-full justify-center mb-2">
-        <div className="flex items-center rounded-full bg-gray-50/80 px-2 py-0.5">
-          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-          <span className="ml-1 text-xs font-semibold tabular-nums text-gray-900">{offer.rating}</span>
+      <div className="relative mb-4">
+        <img
+          src={offer.casinoLogo}
+          alt={offer.casinoName}
+          className="h-24 w-24 object-contain"
+          style={{ 
+            borderRadius: 20,
+            boxShadow: '10px 10px 16px #969696, -5px -5px 16px #ffffff, inset 1px 1px 2px #969696, inset -1px -1px 2px #ffffff'
+          }}
+          loading="lazy"
+        />
+        {/* Rating badge over het logo */}
+        <div className="absolute left-1/2 -bottom-3 -translate-x-1/2 z-10">
+          <div className="flex items-center rounded-full bg-white px-2.5 py-0.5 shadow-[0_2px_8px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(0,0,0,0.08)]">
+            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            <span className="ml-1 text-xs font-semibold tabular-nums text-gray-900">{offer.rating}</span>
+          </div>
         </div>
+      </div>
+      {/* Naam */}
+      <div className="flex items-center gap-2 w-full justify-center mb-2 mt-1">
         <span className="text-base font-bold text-gray-900 truncate">{offer.casinoName}</span>
       </div>
       {/* Bonus prominent */}
@@ -60,11 +65,11 @@ const BonusCardRedesign: React.FC<BonusCardRedesignProps> = ({ offer, getCasinoU
       <div className="mb-3 text-center text-[15px] font-medium text-gray-700 w-full">{offer.description}</div>
       {/* Requirements als badges */}
       <div className="mb-4 flex flex-wrap justify-center gap-2 w-full">
-        <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
+        <span className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-medium text-gray-700 shadow-[0_2px_8px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(0,0,0,0.08)]">
           <Check className="mr-1 h-3 w-3 text-gokkerz-green" />
           {offer.requirements}
         </span>
-        <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
+        <span className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-medium text-gray-700 shadow-[0_2px_8px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(0,0,0,0.08)]">
           <Check className="mr-1 h-3 w-3 text-gokkerz-green" />
           Nederlandse licentie
         </span>
